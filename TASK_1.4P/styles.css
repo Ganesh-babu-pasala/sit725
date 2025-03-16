@@ -1,11 +1,81 @@
+/* General Styles */
 body {
     font-family: Arial, sans-serif;
     text-align: center;
-    margin-top: 50px;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
 }
+
+/* Header */
+header {
+    background-color: black;
+    color: white;
+    padding: 15px;
+    text-align: center;
+    font-size: 24px;
+}
+
+/* Unit Chair Section */
+.unit-chair {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px gray;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Interactive Section */
+.content {
+    margin-top: 20px;
+}
+
 button {
     padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
+    background-color: blue;
+    color: white;
+    border: none;
+    border-radius: 5px;
 }
 
+button:hover {
+    background-color: darkblue;
+}
+
+/* Small Text */
+.small-text {
+    font-size: 12px;
+    color: gray;
+    margin-top: 10px;
+}
+
+/* Week 1 Content Button */
+.week1 {
+    margin-top: 30px;
+}
+
+.week1-button {
+    background-color: #0077b6;
+    color: white;
+    padding: 12px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 18px;
+}
+
+.week1-button:hover {
+    background-color: #005f87;
+}
+
+/* Footer */
+footer {
+    margin-top: 40px;
+    background-color: black;
+    color: white;
+    padding: 10px;
+}

@@ -1,6 +1,5 @@
 function changeText() {
-    var textsArray = ["Hello, SIT725!", "Welcome to JavaScript!", "Git is amazing!", "Enjoy coding!", "Keep Learning!"];
+    var textsArray = ["Welcome to SIT 725!", "Week 1 is here!", "Explore software engineering!", "Stay curious and keep learning!", "Let's build something great!"];
     var number = Math.floor(Math.random() * textsArray.length);
     document.getElementById("heading").innerText = textsArray[number];
 }
-
