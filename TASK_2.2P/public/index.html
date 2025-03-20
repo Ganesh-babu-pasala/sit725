@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+        }
+        #calculator-container {
+            background: white;
+            padding: 20px;
+            width: 320px;
+            margin: auto;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            text-align: center;
+        }
+        input {
+            width: 80%;
+            padding: 8px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            outline: none;
+            text-align: center;
+            font-size: 16px;
+        }
+        button {
+            margin: 5px;
+            padding: 10px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: #007BFF;
+            color: white;
+            width: 130px;
+            transition: background-color 0.3s ease, transform 0.1s ease-in-out;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        button:active {
+            transform: scale(0.95);
+        }
+        .selected {
+            background-color: #ff9800 !important;
+        }
+        #result {
+            width: 85%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            outline: none;
+            text-align: center;
+            font-size: 16px;
+            background: white;
+            margin: auto;
+            display: block;
+        }
+        #history {
+            text-align: left;
+            font-size: 14px;
+            margin-top: 15px;
+            max-height: 150px;
+            overflow-y: auto;
+            border-top: 1px solid #ddd;
+            padding-top: 10px;
+        }
+        .history-item {
+            padding: 5px 0;
+            border-bottom: 1px solid #ddd;
+        }
+        #clear-btn {
+            background-color: #FF3B30;
+            width: 85%;
+        }
+        #clear-btn:hover {
+            background-color: #D32F2F;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Task 2.2P</h1>
+
+    <div id="calculator-container">
+        <h2>Simple Calculator</h2>
+        <form id="calcForm">
+            <input type="number" id="num1" placeholder="Enter first number (e.g., 5)" required>
+            <input type="number" id="num2" placeholder="Enter second number (e.g., 10)" required>
+            <br><br>
+            <button type="button" onclick="calculate('add', this)">Add</button>
+            <button type="button" onclick="calculate('subtract', this)">Subtract</button>
+            <button type="button" onclick="calculate('multiply', this)">Multiply</button>
+            <button type="button" onclick="calculate('divide', this)">Divide</button>
+            <br><br>
+            <input type="text" id="result" placeholder="Result will appear here" readonly>
+            <br><br>
+            <button type="button" id="clear-btn" onclick="clearAll()">Clear</button>
+        </form>
+
+        <div id="history">
+            <h4>Calculation History</h4>
+            <div id="history-content"></div>
+        </div>
+    </div>
+
+    <script>
+        function calculate(operation, button) {
+            let num1 = document.getElementById('num1').value;
+            let num2 = document.getElementById('num2').value;
+
+            fetch(`/calculate?num1=${num1}&num2=${num2}&operation=${operation}`)
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('result').value = data.result;
+
+                    // Add result to history
+                    let historyDiv = document.getElementById('history-content');
+                    let newEntry = document.createElement("div");
+                    newEntry.className = "history-item";
+                    newEntry.textContent = `${num1} ${operation} ${num2} = ${data.result}`;
+                    historyDiv.prepend(newEntry);
+
+                    // Highlight clicked button
+                    clearHighlight();
+                    button.classList.add("selected");
+
+                    // Auto-scroll history
+                    historyDiv.scrollTop = historyDiv.scrollHeight;
+                })
+                .catch(error => {
+                    document.getElementById('result').value = "Error: Invalid input!";
+                });
+        }
+
+        function clearHighlight() {
+            document.querySelectorAll("button").forEach(btn => {
+                btn.classList.remove("selected");
+            });
+        }
+
+        function clearAll() {
+            document.getElementById('num1').value = "";
+            document.getElementById('num2').value = "";
+            document.getElementById('result').value = "";
+            document.getElementById('history-content').innerHTML = "";
+            clearHighlight();
+        }
+    </script>
+
+</body>
+</html>
