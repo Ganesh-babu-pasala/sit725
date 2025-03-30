@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Reviews</title>
+
+  <!-- Materialize CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+  <!-- Material Icons -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav>
+    <div class="nav-wrapper navbar-size red lighten-2">
+      <a href="#" class="brand-logo center">My Reviews</a>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="main-body">
+    <div class="container">
+      <div class="row">
+        <div class="col s12 center-align">
+          <h4>Welcome to SIT725 Task 3.2P</h4>
+          <p><strong>(This app is styled using Materialize components.)</strong></p>
+        </div>
+      </div>
+
+      <!-- Dynamic Review Cards Section -->
+      <div class="row" id="card-section"></div>
+
+      <!-- Filter Buttons -->
+      <div class="row center-align" style="margin-top: 40px;">
+        <a class="waves-effect waves-light btn category-button" data-category="all">ALL</a>
+        <a class="waves-effect waves-light btn category-button" data-category="phones">PHONES</a>
+        <a class="waves-effect waves-light btn category-button" data-category="watches">WATCHES</a>
+        <a class="waves-effect waves-light btn category-button" data-category="electronics">ELECTRONICS</a>
+      </div>
+    </div>
+  </main>
+
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+  <!-- Materialize JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+  <!-- Custom JS -->
+  <script src="js/scripts.js"></script>
+</body>
+</html>
