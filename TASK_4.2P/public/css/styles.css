@@ -1,0 +1,82 @@
+/* Navbar */
+.navbar-size {
+    width: 95%;
+    margin: 0 auto;
+  }
+  
+  .main-body {
+    background-color: #f3f3f3;
+    padding: 30px 0;
+    min-height: calc(100vh - 64px);
+  }
+  
+  /* Card styling */
+  .card {
+    margin: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: auto;
+  }
+  
+  .card-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .product-title {
+    color: black;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .card-image img {
+    height: 200px;
+    object-fit: contain;
+    padding: 10px;
+    background-color: white;
+    display: block;
+    margin: 0 auto;
+  }
+  
+  .category-button {
+    margin: 5px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .category-button:hover {
+    background-color: #0288d1;
+    color: white;
+  }
+  
+  ::selection {
+    background: #ddd;
+    color: black;
+  }
+  
+  .green-dot,
+  .red-dot {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-right: 8px;
+    margin-bottom: 1px;
+  }
+  
+  .green-dot {
+    background-color: #4caf50;
+  }
+  
+  .red-dot {
+    background-color: #f44336;
+  }
+  
+  /* Optional: selected card */
+  .card.selected-card {
+    border: 3px solid #0288d1;
+    box-shadow: 0 0 15px rgba(2, 136, 209, 0.4);
+  }
+  
