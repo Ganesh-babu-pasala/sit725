@@ -74,7 +74,7 @@
     background-color: #f44336;
   }
   
-  /* Optional: selected card */
+  
   .card.selected-card {
     border: 3px solid #0288d1;
     box-shadow: 0 0 15px rgba(2, 136, 209, 0.4);
